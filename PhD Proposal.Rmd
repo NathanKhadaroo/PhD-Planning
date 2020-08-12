@@ -1,0 +1,32 @@
+---
+title: "Research Proposal"
+author: 'Nathan Khadaroo'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Introduction: 
+
+### Litterature review:
+
+### Bibliography: 
+
+### Appendix:
+
+#### Gantt chart:
+
+This is a Gantt chart for the whole PhD project:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+
+This are per year Gantt charts:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```

@@ -19,6 +19,7 @@ tasks <- tribble(
   "01-09-2020", "01-04-2021", "Training", "Elective modules",
   "01-01-2021", "01-05-2021", "Writing", "Master's Dissertation",
   "01-01-2021", "01-04-2021", "Other", "Internship",
+  "01-10-2021", "01-04-2022", "Other", "Year three things",
   "01-02-2023", "01-04-2023", "Reading", "Final literature review",
   "01-04-2023", "15-06-2023", "Writing", "Final Write-Up") %>%
   mutate(Start = dmy(Start),
@@ -67,18 +68,27 @@ Gantt <- function(x, Task, task.date, Project) {
 # Whole PhD ---------------------------------------------------------------
 
 
-whole <- Gantt(tasks)
+whole <- Gantt(tasks)+
+  ggtitle('Whole PhD:')
 
 
 # By year -----------------------------------------------------------------
 
-y2 <- Gantt(tasks_y2)
+y2 <- Gantt(tasks_y2) +
+  ggtitle('Second Year:')
 
-y3 <- Gantt(tasks_y3)
+y3 <- Gantt(tasks_y3) +
+  ggtitle('Third Year:')
   
-y4 <- Gantt(tasks_y4)
+y4 <- Gantt(tasks_y4) +
+  ggtitle('Final Year:')
 
-whole/(y2 + y4)
+whole/(y2 + y3 + y4) +
+  plot_layout(guides = "collect")
+  plot_annotation(title = 'PhD plan (so far!)') & 
+  theme(text = element_text('mono'),
+        legend.position = "bottom")
+
 
 # Save plot as high resolution PNG (the secret is 'type = "cairo", dpi = 300')
 ggsave(timeline, filename = "timeline.png",

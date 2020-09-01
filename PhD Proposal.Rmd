@@ -2,8 +2,8 @@
 title: "PhD plan and Research Proposal"
 author: "Nathan Khadaroo - 8520000"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}

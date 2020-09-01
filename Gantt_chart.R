@@ -8,6 +8,7 @@ library(lubridate) # Make Dealing with Dates a Little Easier
 library(scales) # Scale Functions for Visualization
 library(Cairo) # R Graphics Device using Cairo Graphics Library
 library(patchwork) # The Composer of Plots
+library(RColorBrewer) # ColorBrewer Palettes
 
 
 # Specifying tasks --------------------------------------------------------
@@ -19,7 +20,7 @@ tasks <- tribble(
   "01-09-2020", "01-04-2021", "Training", "Elective modules",
   "01-01-2021", "01-05-2021", "Writing", "Master's Dissertation",
   "01-01-2021", "01-04-2021", "Other", "Internship",
-  "01-10-2021", "01-04-2022", "Other", "Year three things",
+  "01-10-2021", "01-08-2022", "Other", "Year three things",
   "01-02-2023", "01-04-2023", "Reading", "Final literature review",
   "01-04-2023", "15-06-2023", "Writing", "Final Write-Up") %>%
   mutate(Start = dmy(Start),
@@ -28,7 +29,7 @@ tasks <- tribble(
   arrange(date.type, task.date) %>%
   mutate(Task = factor(Task, levels = rev(unique(Task)), ordered = TRUE))
 
-# By year -----------------------------------------------------------------
+# Specifying years --------------------------------------------------------
 
 tasks_y2 <- tasks %>%
   filter(task.date < "2021-09-01",
@@ -46,11 +47,12 @@ tasks_y4 <- tasks %>%
 
 # Making Gantt function ---------------------------------------------------
 
-
 Gantt <- function(x, Task, task.date, Project) {
     ggplot(x, aes(x = Task,
                   y = task.date,
                   colour = Project)) +
+    scale_fill_brewer(palette="Set2") +
+    scale_color_brewer(palette="Set2") +
     geom_line(size = 6) +
     geom_vline(xintercept = seq(length(tasks$Task) + 0.5 - 1, 0, by = -1),
                colour = "grey80",
@@ -65,32 +67,32 @@ Gantt <- function(x, Task, task.date, Project) {
           legend.position = "bottom")
   }
 
-# Whole PhD ---------------------------------------------------------------
 
+# Creating plots ----------------------------------------------------------
 
-whole <- Gantt(tasks)+
-  ggtitle('Whole PhD:')
+# Whole PhD
 
+whole <- Gantt(tasks) +
+  ggtitle("Whole PhD! :")
 
-# By year -----------------------------------------------------------------
+# By year
 
 y2 <- Gantt(tasks_y2) +
-  ggtitle('Second Year:')
+  ggtitle("Second Year:")
 
 y3 <- Gantt(tasks_y3) +
-  ggtitle('Third Year:')
+  ggtitle("Third Year:")
   
 y4 <- Gantt(tasks_y4) +
-  ggtitle('Final Year:')
+  ggtitle("Final Year:")
 
-whole/(y2 + y3 + y4) +
-  plot_layout(guides = "collect")
-  plot_annotation(title = 'PhD plan (so far!)') & 
-  theme(text = element_text('mono'),
-        legend.position = "bottom")
+charts <- whole / (y2 + y3 + y4) +
+  plot_annotation(title = "PhD plan (so far!)") &
+  theme(text = element_text("mono"))
 
 
 # Save plot as high resolution PNG (the secret is 'type = "cairo", dpi = 300')
-ggsave(timeline, filename = "timeline.png",
-       width = 10, height = 6.5, units = "in", type = "cairo", dpi = 300)
+
+ggsave(charts, filename = "Gantt_chart.png",
+       width = 12, height = 6.5, units = "in", type = "cairo", dpi = 300)
 

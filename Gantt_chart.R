@@ -20,8 +20,10 @@ tasks <- tribble(
   "01-09-2020", "01-04-2021", "Training", "Elective modules",
   "01-09-2020", "01-01-2021", "Review", "Systematic review training",
   "01-01-2021", "30-08-2021", "Review", "Systematic review writing",
-  "02-09-2021", "01-01-2022", "Simulation Study", "Simulation Study training",
-  "01-01-2022", "30-08-2022", "Simulation Study", "Simulation Study writing",
+  "02-09-2021", "01-01-2022", "Empirical", "Simulation Study training",
+  "01-01-2022", "30-08-2022", "Empirical", "Simulation Study writing",
+  "02-09-2021", "01-01-2022", "Empirical", "Applying methods to real data",
+  "01-01-2022", "30-08-2022", "Empirical", "Applying methdos to real data (Writing)",
   "01-01-2022", "01-04-2022", "Other", "Internship",
   "02-09-2022", "01-02-2023", "Reading", "Final literature review",
   "01-02-2023", "15-06-2023", "Writing", "Final Write-Up") %>%

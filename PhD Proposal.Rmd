@@ -2,8 +2,8 @@
 title: "PhD plan and Research Proposal"
 author: "Nathan Khadaroo - 8520000"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -24,40 +24,40 @@ Some ideas for the title of the thesis are:
 
 - "Hybrid intelligence in the social sciences: applications of machine learning to bias in crowd-sourced data"
 
-I will first provide a non-exhaustive review of the literature on bias in citizen science data, I will then outline three proposals for projects/papers that would constitute the substantive of the PhD thesis. I will discuss the motivation for each of these projects as well as the skills I would need to acquire to pull them off. I will briefly discuss ethics. The appendix contains a provisional Gantt chart for the PhD. A larger version can be found [here](https://github.com/NathanKhadaroo/PhD-Planning/blob/master/Gantt_chart.png).
+I will first provide a non-exhaustive review of the literature on bias in citizen science data, I will then outline three proposals for projects/papers that would constitute the substantive of the PhD thesis. I will discuss the motivation for each of these projects as well as the skills I would need to acquire to pull them off. I will briefly discuss ethics. The appendix contains a provisional Gantt chart for the PhD. A larger version can be found [https://github.com/NathanKhadaroo/PhD-Planning/blob/master/Gantt_chart.png](https://github.com/NathanKhadaroo/PhD-Planning/blob/master/Gantt_chart.png).
 
 # Litterature review:
 
-
-In this section I provide a brief non-exhaustive review of the literature on bias in citizen science data sets.
+The purpose of this section is to briefly motivate the PhD research questions, and identify relevant data sets for the empirical component of my thesis
 
 Citizen science is an increasingly popular approach to scientific inquiry, however a number of concerns have been raised about accuracy in citizen science data. For example, [Riesch & Potter(2014)](https://journals.sagepub.com/doi/10.1177/0963662513497324) conducted qualitative interviews with "scientists who participated in the ‘OPAL’ portfolio of citizen science projects that has been running in England since 2007", finding that issues around data quality are "almost universally recognized as one of the problems that scientists working in CS need to address" (p 112).
 
 [Elliott & Rosenberg (2019)](https://theoryandpractice.citizenscienceassociation.org/article/10.5334/cstp.155/), whilst acknowledging the concerns mainly scientists have about citizen science data, notes the existence of a substantive literature in philosophy of science arguing that the quality of data should be evaluated in terms of the purposes for which they are being used, and that "empirical evidence suggests that the quality of citizen science data has often been sufficient for the projects being pursued" (p 3). They further argue that there are a number of ways in which citizen science data-sets can improve their accuracy, such as training, aggregation or statistical modeling (for example, weighting contributions depending on how long the contributor has been active, as volunteers are known to improve accuracy over time). 
 
-An overview of quality assessment methods for volunteered geographic information (a type of citizen science data which is highly prevalent in social science applications) is provided by [Senaratne, et al (2016)](https://www.tandfonline.com/doi/full/10.1080/13658816.2016.1189556?src=recsys).
+An overview of quality assessment methods for volunteered geographic information (a type of citizen science data which is highly prevalent in social science applications) is provided by [Senaratne, et al (2016)](https://www.tandfonline.com/doi/full/10.1080/13658816.2016.1189556?src=recsys). Most social citizen science data is volunteered geographical information, this framework should be useful for assessing studies and outcomes of modeling approaches to bias reduction. 
 
-[Aceves-Buenoet al (2017)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.1336) provide a quantitative review of papers comparing citizen science data to some reference data. Specifically they seek to compare these papers own qualitative evaluation of the accuracy of the citizen science data and quantitative assessments, finding that authors can be overly optimistic in their qualitative assessments of their data. Furthermore, they find that what authors consider to be sufficient accuracy varies on a number of factors. Similarly to [Senaratne, et al (2016)](https://www.tandfonline.com/doi/full/10.1080/13658816.2016.1189556?src=recsys), they provide a list of metrics used to assess accuracy.
+Whilst there is no current review of data quality in the social sciences, [Aceves-Buenoet al (2017)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.1336) provide a quantitative review of papers in ecology comparing citizen science data to some reference data. Specifically they seek to compare these papers own qualitative evaluation of the accuracy of the citizen science data and quantitative assessments, finding that authors can be overly optimistic in their qualitative assessments of their data. Furthermore, they find that what authors consider to be sufficient accuracy varies on a number of factors. Similarly to [Senaratne, et al (2016)](https://www.tandfonline.com/doi/full/10.1080/13658816.2016.1189556?src=recsys), they provide a list of metrics used to assess accuracy. As many of the criteria for data quality in ecology and biology are also useful in assessing data quality in social sciences, this could provide a useful example to follow when assessing bias issues in citizen social science. This could also inform thinking about concerns surrounding biases that are of special concern to social problems such as how representative the citizen scientists in a project are of the broader population.
 
-[Bird, et al (2014)](https://www.sciencedirect.com/science/article/pii/S0006320713002693?casa_token=WZPESRApp30AAAAA:0r80fYY8WgbOa63Zvch7ffZR67wkt6JmEV-fZPiRpyQd66SIlT083awYMy_q8YqZiTsQybOFLdQ) provide a detailed overview of statistical solutions to issues of bias as well as a list of available R packages for their implementation. They provide valuable contextualization of bias in citizen science data, emphasizing three main elements: 1) Types of response data, which refers to the issue of presence only data (for example, FixMyStreet users might use the app after driving over a pothole, but not after a smooth journey to signal the lack of potholes), 2) random error and 3) bias.
+There is a lack of review of statistical solution to bias in the social citizen science.  However [Bird, et al (2014)](https://www.sciencedirect.com/science/article/pii/S0006320713002693?casa_token=WZPESRApp30AAAAA:0r80fYY8WgbOa63Zvch7ffZR67wkt6JmEV-fZPiRpyQd66SIlT083awYMy_q8YqZiTsQybOFLdQ) provide a detailed overview of statistical solutions to issues of bias in biology and ecology as well as a list of available R packages for their implementation. They provide valuable contextualization of bias in citizen science data, emphasizing three main elements: 1) Types of response data, which refers mainly to the issue of presence only data, 2) random error and 3) bias.
+These elements are also prevalent in social citizen science, for example, FixMyStreet users are likely use the app after driving over a pothole, but not after a smooth journey to signal the lack of potholes (cite). 
 
 They then provide an overview of various broad families of approaches that have been used such as linear and generalized linear models and extensions, mixed-effects models, hierarchical models, machine learning, and species distribution models.
 
 They finish on an optimistic note, anticipating the future "development of novel statistical approaches and survey designs that will break new ground in overcoming some of the problems we have outlined in this paper."
 
-[Altwegg & Nichols(2019)](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13090) look at the use of occupancy models as a means of modeling bias resulting from issues common in app based citizen science data such as "heterogeneous and non-random sampling, false absences, false detections, and spatial correlations in the data."
+An extremely common approach in biology and ecology is the use of occupancy models. These models are built on strong assumptions about population distributions based on the literature in ecology and biology. These approaches may not appear to be immediately useful to a citizen social science approach, however many of the structural assumptions about objects of interest in biological sciences also apply to the objects of interest in citizen social science. [Altwegg & Nichols(2019)](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13090) look at the use of occupancy models as a means of modeling bias resulting from issues common in app based citizen science data such as "heterogeneous and non-random sampling, false absences, false detections, and spatial correlations in the data."
 
 Similarily, [Johnston, et al (2020)](https://www.sciencedirect.com/science/article/pii/S0304380019304351?casa_token=wuxc1qA9H_UAAAAA:A60UedoCkuK7VkfP02PE5PJFvEtJvXEfuKO9oZ6oPyjRDwcE7WDJ7d6DU2EFBzXhKIfskinK9h0) use occupancy modeling to spatially biased citizen science data in Great Britain. They noted that whilst the modeling could provide accurate and precise estimates in some areas, there were areas with few observations where this was not the case, with the modeling approach improving accuracy, but not precision. They emphasize that estimation from "spatially biased data should be further validated and tested under a range of different scenarios".
 
 In a pre-print, [Johnston, et al (2019)](https://www.biorxiv.org/content/10.1101/574392v1.abstract) provide a guide to best practices for making inference using citizen science data. They argue that that the collection process must be accounted for explicitly, finding the greatest improvements in accuracy occured from "1) the use of complete checklists rather than presence-only data, and 2) the use of covariates describing variation in effort and detectability for each checklist"
 
-[Weiser et al (2020)](https://www.sciencedirect.com/science/article/pii/S0006320719317227?casa_token=Kemg3KSYeakAAAAA:at17aQs_BVD8Tye-tgLjUG4K4AbcQrrSE3atUnXkBXCTxiF2cfMmE4fQ8b2CdJinZ8wD5vDbmz4) show that it is possible to obtain unbiased population estimates from citizen science data where the citizen scientists selected the areas they gathered data themselves (non-probaility sites), even in the absence of covariates which explain differences between sites. However they also found that more non-probability sites could require more probability based sites to fully correct for bias. As above, they emphasize the need for further research.
+Spatial bias is of particular concern with citizen social science, as often citizen scientists will collect data at locations based on convenience (usually where they happen to be anyway such as the path of their commute or local area). This can be an issue for making robust geographical inferences, as the data will suffer from urban biases and a lack of equal coverage. [Weiser et al (2020)](https://www.sciencedirect.com/science/article/pii/S0006320719317227?casa_token=Kemg3KSYeakAAAAA:at17aQs_BVD8Tye-tgLjUG4K4AbcQrrSE3atUnXkBXCTxiF2cfMmE4fQ8b2CdJinZ8wD5vDbmz4) show that it is possible to obtain unbiased population estimates from citizen science data where the citizen scientists selected the areas they gathered data themselves (they call these non-probability sites), even in the absence of covariates which explain differences between sites. However they also found that more non-probability sites could require more probability based sites to fully correct for bias. As above, they emphasize the need for further research.
 
 # Project proposal:
 
 In this section I outline the key components of my proposed thesis. As each of the three main components are intended to build upon knowledge acquired in previous components, the plans for later components are naturally less detailed at this point.
 
-The first component is a systematic review of citizen science projects which use statistical modeling to address bias. The aim is to gain a deep understanding of which biases are common (and commonly considered a problem), which approaches have been used to mitigate these problems, and to gain a quantitative understanding of the prevalence of various approaches. The understanding gained in this step should help inform the rest of the PhD.
+The first component is a systematic review of project which use a  citizen science or crowd-sourcing research design to address problems of social good" I will extract any discussions of data bias, and any attempts to use statistical modeling to address this bias. The aim is to gain a deep understanding of which biases are common (and commonly considered a problem), which approaches have been used to mitigate these problems, and to gain a quantitative understanding of the prevalence of various approaches. The understanding gained in this step should help inform the rest of the PhD.
 
 The second component of the thesis is a simulation study evaluate the performance of the various modeling approaches under a number of scenarios using an agent based model to generate observation data. The aim here is to understand the strengths and weaknesses of various approaches in an objective way. 
 
@@ -69,9 +69,9 @@ The final component is to propose a united framework for best practice in modeli
 
 The first project I plan to undertake is a systematic review of citizen science projects which use statistical techniques to address bias in the data collection process. (*This could potentially also be my masters dissertation?*)
 
-There is no existing systematic review of the ways statistically modeling has been applied to citizen science data sets across fields. This would therefore constitute a meaningful contribution to the literature. It would also allow me to delve deep into the literature and should inform later projects.
+There is no existing systematic review of the ways statistically modeling has been applied to citizen science data sets across fields. In particular there is no review of modeling approaches to bias in citizen social science. This would therefore constitute a meaningful contribution to the literature. It would also allow me to delve deep into the literature and should inform later projects.
 
-Prior review of bias in citizen science data so exist, for example [Bird, et al (2014)](https://www.sciencedirect.com/science/article/pii/S0006320713002693?casa_token=WZPESRApp30AAAAA:0r80fYY8WgbOa63Zvch7ffZR67wkt6JmEV-fZPiRpyQd66SIlT083awYMy_q8YqZiTsQybOFLdQ). However they are field specific (in this case biology), and do not follow a systematic approach. This exposes the findings to a higher risk of bias, and prevents the authors from making quantitative statements about the relative prevalence of various approaches.
+Prior review of bias in citizen science data so exist, for example [Bird, et al (2014)](https://www.sciencedirect.com/science/article/pii/S0006320713002693?casa_token=WZPESRApp30AAAAA:0r80fYY8WgbOa63Zvch7ffZR67wkt6JmEV-fZPiRpyQd66SIlT083awYMy_q8YqZiTsQybOFLdQ). However they are field specific (in this case biology), and do not follow a systematic approach. Nonetheless these can be a useful template for designing a review specific to citizen social science. This exposes the findings to a higher risk of bias, and prevents the authors from making quantitative statements about the relative prevalence of various approaches.
 
 #### How I will do it:
 
@@ -85,7 +85,9 @@ Once I have settled on a protocol to follow, I will perform some initial scoping
 
 Key aspects of studies which would have to be recorded would be the type of bias which is being addressed (Measurement error, representativeness, bias, various types of clustering, lack of absence data, etc), what modeling approach is being used (generalized linear models, hierarchical models (bayesian vs classical), additive models, geographically weighted regressing models, occupancy models (technically glm's), etc). 
 
-It would also be useful to collect information on openness (whether the data and code are available,if the data was collected using a mobile app, was the software open source and does it have plans for sustainability, etc). A possible template for this would be the framework used in [Ostermann and Granell (2017)](https://onlinelibrary.wiley.com/doi/abs/10.1111/tgis.12195), who review 58 papers on the use of volunteered geographic information in the crisis management field and evaluate .
+It would also be useful to collect information on openness (whether the data and code are available,if the data was collected using a mobile app, was the software open source and does it have plans for sustainability, etc). A possible template for this would be the framework used in [Ostermann and Granell (2017)](https://onlinelibrary.wiley.com/doi/abs/10.1111/tgis.12195), who review 58 papers on the use of volunteered geographic information in the crisis management field and evaluate.
+
+I will seek to submit this review for publication as soon as possible so that any feedback can be used to inform the next component of the project.
 
 #### Pre-requisites: 
  
@@ -108,13 +110,17 @@ This project provides a large part of the empirical contribution of the thesis. 
 
 A potential approach would be a simulation study using an agent based model to evaluate performance of various modeling approaches under different assumptions about underlying true distribution of the data, the clustering of observers, their accuracy, the type of data collection (for example presence only data vs presence/absence data) etc.
 
-This could be used to look at a number of questions such as: 
+This could be used to explore the following research questions:: 
 
 - Do some modeling approaches work better when the target population is generated in certain ways (for example, scarce data vs abundant, etc (obviously yes, but do some model do well over many types...)? 
 
 - Are certain modeling approaches useful only when the observation procedure follows different patterns. For example contributions being highly clustered (often as a power law) by contributors, tasks where high accuracy is widespread or not, different distributions of accuracy et cetera.
 
 - How do models account for heterogeneity in contributors (both in quantity and quality)? Could bayesian hierarchical models use super-contributors, who are known to be more accurate, to generate informative priors for contributors who are less active/precise?
+
+I will also seek to apply (potentially in a separate paper) various approaches to an existing, non simulated citizen science data sets, such as FixMyStreet data, Open Street map data, or 360giving data.
+
+I will seek to submit this review for publication as soon as possible so that any feedback can be used to inform the next component of the project.
 
 #### Pre-requisites: 
 
@@ -144,7 +150,7 @@ This aspect of the PhD is likely to be be produced in close collaboration with O
 
 - A good understanding of existing "best practice" frameworks.
 - Paying close attention to ongoing debates on bias in citizen science.
-
+- Completing the internship project with Open Data Manchester to gain experience developing frameworks and working with stakeholders.
 
 ## Elective module choice:
 
@@ -162,7 +168,11 @@ Some potential takes could be:
 
 ## Ethics:
 
-I am committed to making all the output from the PhD freely available and as reproducible as possible. This involves exclusively using scripted open-sourced software for analysis, making data used open whenever possible. I also aim to pre-register any analysis I will be undertaking (including the systematic review) on my [Open Science Framework page](https://osf.io/u986c/).
+I will seek to gain ethical approval from the university where necessary. However most of the proposal is based on analysing openly available data so i do not anticipate ethical approuval being a significant obstacle. 
+
+I am committed to making all the output from the PhD freely available and as reproducible as possible.
+
+This involves exclusively using scripted open-sourced software for analysis, making data used open whenever possible. I also aim to pre-register any analysis I will be undertaking (including the systematic review) on my [Open Science Framework page](https://osf.io/u986c/).
 
 ## Bibliography: 
 
